@@ -1,0 +1,13 @@
+version: '3.8'  # Make sure to include this at the top
+
+services:
+  mysql:
+    image: mysql:8.3.0
+    container_name: login-page-spotify-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+    ports:
+      - "3316:3306"
+    volumes:
+      - ./mysql:/var/lib/mysql
+      - ./docker/mysql/init.sql:/docker-entrypoint-initdb.d/init.sql
